@@ -6,7 +6,9 @@ import reducer from "./reducers";
 import { createStore, compose } from "redux";
 import SnackbarProvider from "react-simple-snackbar";
 import initialState from "./initialState";
+import firebaseInstance from "./utils/firebase";
 
+firebaseInstance.getInstance();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, initialState, composeEnhancers());
 
