@@ -13,7 +13,7 @@ const Login = () => {
           <label htmlFor="password"></label>
           <input id="password" type="password" />
         </div>
-        <button>{STRINGS.LOGIN}</button>
+        <button>{STRINGS.LOGIN.ACTION}</button>
       </form>
     </section>
   );
