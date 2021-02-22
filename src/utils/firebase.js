@@ -42,9 +42,41 @@ const firebaseInstance = (function () {
       });
   };
 
+  const loginUser = (email, password) => {
+    return _firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        return userCredential.user;
+      })
+      .catch((error) => {
+        throw new Error(`New error ${error.code}: ${error.message}`);
+      });
+  };
+
+  const loginWithGoogle = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    return _firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const credential = result.credential;
+        return {
+          credential,
+          token: credential.accessToken,
+          user: result.user,
+        };
+      })
+      .catch((error) => {
+        throw new Error(`New error ${error.code}: ${error.message}`);
+      });
+  };
+
   return {
     getInstance,
     createUser,
+    loginUser,
+    loginWithGoogle,
   };
 })();
 
