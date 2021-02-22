@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ImageBackground from "../components/ImageBackground";
 import STRINGS from "../constants/strings";
 import firebaseInstance from "../utils/firebase";
 
@@ -20,43 +21,41 @@ const Signup = () => {
     }
   };
   return (
-    <>
-      <section>
-        <form>
-          <div>
-            <label htmlFor="email">{STRINGS.SIGNUP.EMAIL}</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">{STRINGS.SIGNUP.PASSWORD}</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="confirmPassword">
-              {STRINGS.SIGNUP.CONFIRM_PASSWORD}
-            </label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              onChange={handleInputChange}
-            />
-          </div>
-          <button onClick={handleRegisterUser}>{STRINGS.SIGNUP.ACTION}</button>
-        </form>
-      </section>
-    </>
+    <section>
+      <ImageBackground />
+      <form>
+        <div>
+          <label htmlFor="email">{STRINGS.SIGNUP.EMAIL}</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">{STRINGS.SIGNUP.PASSWORD}</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">
+            {STRINGS.SIGNUP.CONFIRM_PASSWORD}
+          </label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            onChange={handleInputChange}
+          />
+        </div>
+        <button onClick={handleRegisterUser}>{STRINGS.SIGNUP.ACTION}</button>
+      </form>
+    </section>
   );
 };
 export default Signup;
