@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ImageBackground from "../components/ImageBackground";
 import STRINGS from "../constants/strings";
 import firebaseInstance from "../utils/firebase";
 
@@ -25,6 +26,7 @@ const Login = () => {
 
   return (
     <section>
+      <ImageBackground />
       <form>
         <div>
           <label htmlFor="email"></label>
